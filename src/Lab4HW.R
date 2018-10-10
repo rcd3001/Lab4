@@ -44,13 +44,13 @@ ggplot(data = data.frame(x  = c(-166:167)), aes(x))+
 #Question 4 - check if input positive integer is a prime number
 
 primeChecker <- function(i){
-  if(i < 0 | !is.integer(i)){
+  if(i < 0 | (i %% 1 != 0)){                #checking if input is less than zero or a decimal
     warning("That's not a positive integer!")
   }
-  else if(i == 2){
+  else if(i == 2){                          
     return(TRUE)
   }
-  else if (any(i %% 2:(i-1) == 0)){
+  else if (any(i %% 2:(i-1) == 0)){         #checking for remainder w/ modulo
     return(FALSE)
   }
   else{
